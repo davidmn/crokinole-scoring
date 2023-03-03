@@ -29,13 +29,16 @@
         <p id="scoreDisplay">40:10</p>
     </div>
     <div class="text-center">
-        <h2>History</h2>
+        <h2>Previous Games</h2>
         <ol id="gameHistory">
         </ol>
     </div>
-    <div class="text-center" class="form-inline">
+    <p class="text-center">
         <a href="https://www.mastersofgames.com/rules/crokinole-rules.htm" target="_blank">Rules</a>
-    </div>
+    </p>
+    <p class="text-center">
+        <a href="https://github.com/davidmn/crokinole-scoring" target="_blank">Code</a>
+    </p>
 </body>
 <script type="text/javascript">
     let player1score = 0;
@@ -43,12 +46,14 @@
     document.getElementById("scoreDisplay").innerText = `${player1score}:${player2score}`
 
     function Go() {
+        HandleRoundEnd();
+        HandleGameEnd();
+    }
+
+    function HandleRoundEnd() {
         let player1RoundScore = document.getElementById("player1score").value;
         let player2RoundScore = document.getElementById("player2score").value;
-        console.log(player1RoundScore)
-        console.log(player2RoundScore)
 
-        // calculate differential score
         if (player1RoundScore == player2RoundScore) {
             // no-op
             return;
@@ -62,8 +67,9 @@
         }
 
         document.getElementById("scoreDisplay").innerText = `${player1score}:${player2score}`;
+    }
 
-        // work out if game is over
+    function HandleGameEnd() {
         if (player1score >= 100 || player2score >= 100) {
             let winner = "Player 1";
             if (player2score >= 100) {
@@ -72,16 +78,14 @@
             alert(`${winner} won!`);
 
             var listItem = document.createElement("li");
-            listItem.innerText = `${winner} wins: ${player1score}:${player2score}`;
+            listItem.innerText = `${winner} wins - ${player1score}:${player2score}`;
             document.getElementById("gameHistory").appendChild(listItem);
             player1score = 0;
             player2score = 0;
             document.getElementById("scoreDisplay").innerText = `${player1score}:${player2score}`;
+            document.getElementById("player1score").value = "";
+            document.getElementById("player2score").value = "";
         }
-
-        // reset the round
-        document.getElementById("player1score").value = 0;
-        document.getElementById("player2score").value = 0;
     }
 </script>
 

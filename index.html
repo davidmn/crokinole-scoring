@@ -9,26 +9,26 @@
 
 <body>
     <h1 class="text-center"> Crokinole Scoring</h1>
-    <p class="text-center">Low stakes scoring for the best baord game ever made</p>
+    <p class="text-center">Low stakes scoring for the best game ever made</p>
     <h2 class="text-center">Round</h2>
     <div class="col-sm">
         <h4>Player 1</h4>
-        <input id="player1score" class="form-control input-sm" type="number" pattern="\d*" value="0" step="5" min="0" />
+        <input id="player1score" class="form-control" type="number" pattern="\d*" step="5" min="0" />
     </div>
     <div class="col-sm">
         <h4>Player 2</h4>
-        <input id="player2score" class="form-control input-sm" type="number" pattern="\d*" value="0" step="5" min="0" />
+        <input id="player2score" class="form-control" type="number" pattern="\d*" step="5" min="0" />
     </div>
-    <div class="text-center" class="row">
-        <button class="btn btn-primary" onclick="return Go();">Go</button>
+    <div class="text-center">
+        <button class="btn btn-primary sm" onclick="return Go();">Go</button>
     </div>
-    <div class="text-center" class="row">
+    <div class="text-center">
         <h2>Game</h2>
     </div>
-    <div class="text-center" class="row">
+    <div class="text-center">
         <p id="scoreDisplay">40:10</p>
     </div>
-    <div class="text-center" class="row">
+    <div class="text-center">
         <h2>History</h2>
         <ol id="gameHistory">
         </ol>

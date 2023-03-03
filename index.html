@@ -4,40 +4,35 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <html>
 <title>Crokinole</title>
+
 <body>
     <h1 class="text-center"> Crokinole Scoring</h1>
     <p class="text-center">Low stakes scoring for the best baord game ever made</p>
-    <div class="container">
-        <h2 class="text-center">Round</h2>
-        <div class="row form-inline">
-            <div class="col-sm">
-                <h4>Player 1</h4>
-                <input id="player1score" class="form-control input-sm pull-right" type="number" value="0" step="5"
-                    min="0" />
-            </div>
-            <div class="col-sm">
-                <h4>Player 2</h4>
-                <input id="player2score" class="form-control input-sm pull-right" type="number" value="0" step="5"
-                    min="0" />
-            </div>
-        </div>
-        <div class="text-center" class="row form-inline">
-            <button class="btn btn-primary" onclick="return Go();">Go</button>
-        </div>
-        <div class="text-center" class="row form-inline">
-            <h2>Game</h2>
-        </div>
-        <div class="text-center" class="row form-inline">
-            <p id="scoreDisplay">40:10</p>
-        </div>
-        <div class="text-center" class="row form-inline">
-            <h2>History</h2>
-            <ol id="gameHistory">
-            </ol>
-        </div>
-        <div class="text-center" class="form-inline">
-            <a href="https://www.mastersofgames.com/rules/crokinole-rules.htm" target="_blank">Rules</a>
-        </div>
+    <h2 class="text-center">Round</h2>
+    <div class="col-sm">
+        <h4>Player 1</h4>
+        <input id="player1score" class="form-control input-sm pull-right" type="number" value="0" step="5" min="0" />
+    </div>
+    <div class="col-sm">
+        <h4>Player 2</h4>
+        <input id="player2score" class="form-control input-sm pull-right" type="number" value="0" step="5" min="0" />
+    </div>
+    <div class="text-center" class="row">
+        <button class="btn btn-primary" onclick="return Go();">Go</button>
+    </div>
+    <div class="text-center" class="row">
+        <h2>Game</h2>
+    </div>
+    <div class="text-center" class="row">
+        <p id="scoreDisplay">40:10</p>
+    </div>
+    <div class="text-center" class="row">
+        <h2>History</h2>
+        <ol id="gameHistory">
+        </ol>
+    </div>
+    <div class="text-center" class="form-inline">
+        <a href="https://www.mastersofgames.com/rules/crokinole-rules.htm" target="_blank">Rules</a>
     </div>
 </body>
 <script type="text/javascript">

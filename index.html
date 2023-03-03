@@ -1,9 +1,11 @@
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<html>
 <title>Crokinole</title>
+
+<html>
 
 <body>
     <h1 class="text-center"> Crokinole Scoring</h1>
@@ -11,11 +13,11 @@
     <h2 class="text-center">Round</h2>
     <div class="col-sm">
         <h4>Player 1</h4>
-        <input id="player1score" class="form-control input-sm pull-right" type="number" value="0" step="5" min="0" />
+        <input id="player1score" class="form-control input-sm" type="number" pattern="\d*" value="0" step="5" min="0" />
     </div>
     <div class="col-sm">
         <h4>Player 2</h4>
-        <input id="player2score" class="form-control input-sm pull-right" type="number" value="0" step="5" min="0" />
+        <input id="player2score" class="form-control input-sm" type="number" pattern="\d*" value="0" step="5" min="0" />
     </div>
     <div class="text-center" class="row">
         <button class="btn btn-primary" onclick="return Go();">Go</button>

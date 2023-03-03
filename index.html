@@ -67,13 +67,17 @@
     function HandleGameEnd() {
         if (player1score >= 100 || player2score >= 100) {
             let winner = "Player 1";
+            let winningScore = player1score;
+            let losingScore = player2score;
             if (player2score >= 100) {
                 winner = "Player 2";
+                winningScore = player2score;
+                losingScore = player1score;
             }
             alert(`${winner} won!`);
 
             var listItem = document.createElement("li");
-            listItem.innerText = `${winner} wins - ${player1score}:${player2score}`;
+            listItem.innerText = `${winner} wins - ${winningScore}:${losingScore}`;
             document.getElementById("gameHistory").appendChild(listItem);
             player1score = 0;
             player2score = 0;

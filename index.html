@@ -20,14 +20,9 @@
         <input id="player2score" class="form-control" type="number" pattern="\d*" step="5" min="0" />
     </div>
     <div class="text-center">
-        <button class="btn btn-primary sm" onclick="return Go();">Go</button>
+        <button style="margin: 1em;" class="btn btn-primary sm" onclick="return Go();">End Round</button>
     </div>
-    <div class="text-center">
-        <h2>Game</h2>
-    </div>
-    <div class="text-center">
-        <p id="scoreDisplay">40:10</p>
-    </div>
+    <h2 class="text-center" id="scoreDisplay">0:0</h2>
     <div class="text-center">
         <h2>Previous Games</h2>
         <ol id="gameHistory">
@@ -48,6 +43,7 @@
     function Go() {
         HandleRoundEnd();
         HandleGameEnd();
+        CleanUp();
     }
 
     function HandleRoundEnd() {
@@ -55,7 +51,6 @@
         let player2RoundScore = document.getElementById("player2score").value;
 
         if (player1RoundScore == player2RoundScore) {
-            // no-op
             return;
         }
 
@@ -83,10 +78,15 @@
             player1score = 0;
             player2score = 0;
             document.getElementById("scoreDisplay").innerText = `${player1score}:${player2score}`;
-            document.getElementById("player1score").value = "";
-            document.getElementById("player2score").value = "";
         }
     }
+
+
+    function CleanUp() {
+        document.getElementById("player1score").value = "";
+        document.getElementById("player2score").value = "";
+    }
+
 </script>
 
 </html>

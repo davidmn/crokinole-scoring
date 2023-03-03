@@ -1,0 +1,91 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<html>
+<title>Crokinole</title>
+<body>
+    <h1 class="text-center"> Crokinole Scoring</h1>
+    <p class="text-center">Low stakes scoring for the best baord game ever made</p>
+    <div class="container">
+        <h2 class="text-center">Round</h2>
+        <div class="row form-inline">
+            <div class="col-sm">
+                <h4>Player 1</h4>
+                <input id="player1score" class="form-control input-sm pull-right" type="number" value="0" step="5"
+                    min="0" />
+            </div>
+            <div class="col-sm">
+                <h4>Player 2</h4>
+                <input id="player2score" class="form-control input-sm pull-right" type="number" value="0" step="5"
+                    min="0" />
+            </div>
+        </div>
+        <div class="text-center" class="row form-inline">
+            <button class="btn btn-primary" onclick="return Go();">Go</button>
+        </div>
+        <div class="text-center" class="row form-inline">
+            <h2>Game</h2>
+        </div>
+        <div class="text-center" class="row form-inline">
+            <p id="scoreDisplay">40:10</p>
+        </div>
+        <div class="text-center" class="row form-inline">
+            <h2>History</h2>
+            <ol id="gameHistory">
+            </ol>
+        </div>
+        <div class="text-center" class="form-inline">
+            <a href="https://www.mastersofgames.com/rules/crokinole-rules.htm" target="_blank">Rules</a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    let player1score = 0;
+    let player2score = 0;
+    document.getElementById("scoreDisplay").innerText = `${player1score}:${player2score}`
+
+    function Go() {
+        let player1RoundScore = document.getElementById("player1score").value;
+        let player2RoundScore = document.getElementById("player2score").value;
+        console.log(player1RoundScore)
+        console.log(player2RoundScore)
+
+        // calculate differential score
+        if (player1RoundScore == player2RoundScore) {
+            // no-op
+            return;
+        }
+
+        if (player1RoundScore > player2RoundScore) {
+            player1score += (player1RoundScore - player2RoundScore);
+        }
+        else {
+            player2score += (player2RoundScore - player1RoundScore);
+        }
+
+        document.getElementById("scoreDisplay").innerText = `${player1score}:${player2score}`;
+
+        // work out if game is over
+        if (player1score >= 100 || player2score >= 100) {
+            let winner = "Player 1";
+            if (player2score >= 100) {
+                winner = "Player 2";
+            }
+            alert(`${winner} won!`);
+
+            var listItem = document.createElement("li");
+            listItem.innerText = `${winner} wins: ${player1score}:${player2score}`;
+            document.getElementById("gameHistory").appendChild(listItem);
+            player1score = 0;
+            player2score = 0;
+            document.getElementById("scoreDisplay").innerText = `${player1score}:${player2score}`;
+        }
+
+        // reset the round
+        document.getElementById("player1score").value = 0;
+        document.getElementById("player2score").value = 0;
+    }
+</script>
+
+</html>

@@ -47,14 +47,8 @@
     }
 
     function HandleRoundEnd() {
-        let player1RoundScore = parseInt(document.getElementById("player1score").value);
-        let player2RoundScore = parseInt(document.getElementById("player2score").value);
-
-        console.log(`player1score ${player1score}`);
-        console.log(`player2score ${player2score}`);
-
-        console.log(`player1roundscore ${player1RoundScore}`);
-        console.log(`player2roundscore ${player2RoundScore}`);
+        let player1RoundScore = parseInt(document.getElementById("player1score").value) || 0;
+        let player2RoundScore = parseInt(document.getElementById("player2score").value) || 0;
 
         if (player1RoundScore == player2RoundScore) {
             return;
@@ -66,9 +60,6 @@
         else {
             player2score += (player2RoundScore - player1RoundScore);
         }
-
-        console.log(`player1score ${player1score}`);
-        console.log(`player2score ${player2score}`);
 
         document.getElementById("scoreDisplay").innerText = `${player1score}:${player2score}`;
     }
